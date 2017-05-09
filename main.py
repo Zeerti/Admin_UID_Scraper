@@ -14,7 +14,7 @@ parser1 = argparse.ArgumentParser(description="Username for Admin Portal")
 parser1.add_argument("username")
 args = parser1.parse_args()
 
-login_url = "https://admin2.brinkpos.net/Public/Login"
+login_url = "admin-support01.brinkpos.net"
 
 #Set values
 args.password = getpass("Password: ")
