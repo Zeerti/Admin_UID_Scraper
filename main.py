@@ -9,7 +9,9 @@ parser1 = argparse.ArgumentParser(description="Username for eblvd")
 parser1.add_argument("username")
 args = parser1.parse_args()
 
+
 login_url = "https://www.eblvd.com/login/"
+
 
 # Set values
 args.password = getpass("Password: ")
