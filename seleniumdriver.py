@@ -1,19 +1,29 @@
 from selenium import webdriver
-
+from selenium.webdriver.common.by import By
 
 class SeleniumDriver():
 
-    def
+    def __init__(self, *args, **kwargs):
+        self.browser = webdriver.Firefox()
 
-    # Connect to URL get HTML
-    browser = webdriver.Firefox()
-    browser.get(login_url)
+    def login(self, login_url, creds):
 
-    username_login_form = browser.find_element_by_id("Username")
-    password_login_form = browser.find_element_by_id("Password")
+        # Connect to URL get HTML
+        self.browser.get(login_url)
 
-    username_login_form.clear()
-    password_login_form.clear()
+        username_login_form = self.browser.find_element_by_id("username")
+        password_login_form = self.browser.find_element_by_id("passwordplace")
 
-    username_login_form.send_keys(values['Username'])
-    password_login_form.send_keys(values['Username'])
+        # Must be called to clear out default text in forms
+        username_login_form.clear()
+        password_login_form.clear()
+
+        # input username and password
+        username_login_form.send_keys(creds['Username'])
+        password_login_form.send_keys(creds['Password'])
+
+        self.browser.find_element_by_id("_signin").click()
+
+    def pull_html(self):
+        return self.browser.page_source
+        
